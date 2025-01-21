@@ -22,7 +22,7 @@ fs.readdir(origFolderPath, { withFileTypes: true }, (err, files) => {
         './05-merge-styles/project-dist/bundle.css',
       );
 
-      readingStream.on('data', (chunk) => fs.appendFileSync(filePath, chunk));
+      readingStream.on('data', (chunk) => writingStream.write(chunk));
     }
   });
 });
